@@ -2,8 +2,8 @@
 Download videos and mp3 from YouTube
 
 # Dependencies
-[pytube](https://pytube.io/en/latest/)
-[moviepy](https://pypi.org/project/moviepy/)
+- [pytube](https://pytube.io/en/latest/) cmd: pip install pytube
+- [moviepy](https://pypi.org/project/moviepy/) cmd: pip install moviepy
 
 # issues
 YouTube Videos doesn't have audio codec with every streams. For different resolutions without audio, audio and video are seperately downloaded and merged using moviepy module. It is a little slow.
