@@ -1,2 +1,4 @@
 # YouTube-downloader
-Download YouTube videos and mp3
+Download videos and mp3 from YouTube
+# issues
+
