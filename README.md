@@ -1,6 +1,13 @@
 # YouTube-downloader
 Download videos and mp3 from YouTube
 
+# mp3-downloader
+Only for downloading mp3s, you can use it in your android/ios device:
+- download '[pydroid 3](https://play.google.com/store/apps/details?id=ru.iiec.pydroid3)' and '[pydroid repository plugin](https://play.google.com/store/apps/details?id=ru.iiec.pydroid3.quickinstallrepo)'
+- open pydroid 3, in the sandwitch option menu, open 'pip' and install '[pytube](https://pytube.io/en/latest/)' library
+- open [mp3-downloader.py] and run it  
+
+
 # Dependencies
 - [pytube](https://pytube.io/en/latest/) cmd: pip install pytube
 - [moviepy](https://pypi.org/project/moviepy/) cmd: pip install moviepy
