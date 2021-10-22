@@ -128,41 +128,49 @@ def download_playlist(url, res):
             except Exception:
                 print("Can't clear cache files")
 
-print()
-url = str(input("Enter the video/playlist link: "))
+run = True
+while run:
+    print()
+    url = str(input("Enter the video/playlist link: "))
 
-if "playlist" in url:
-    res = str(input("Enter choice of resolution (or audio): "))
-    if res == 'audio':
-        musicList(url)
-    else:
-        download_playlist(url, res)
-    print()
-    print()
-    print("Downloaded all files!")
-    
-else:
-    video = YouTube(url)
-    print()
-    print("Searching for available resolutions for ")
-    print("'"+str(video.title)+"'")
-    print(resolution(url))
-    print()
-    res = str(input("Enter choice of resolution (or for only audio, enter audio): "))
-    
-    if res == 'audio':
-        audio = video.streams.filter(only_audio=True).first().download('downloads')
-        filename = video.title
-        for subString in video.title:
-            if subString == '/':
-                filename = filename.replace('/','-',1)
-            if subString == '|':
-                filename = filename.replace('|','-',1)
-            if subString == ':':
-                filename = filename.replace(':','-',1)
-        os.rename(audio, 'downloads/'+str(filename)+'.mp3')
-    else:
-        download(url, res)
+    if "playlist" in url:
+        res = str(input("Enter choice of resolution (or audio): "))
+        if res == 'audio':
+            musicList(url)
+        else:
+            download_playlist(url, res)
         print()
-
-    print("Downloaded!")
+        print()
+        print("Downloaded all files!")
+    
+    else:
+        video = YouTube(url)
+        print()
+        print("Searching for available resolutions for ")
+        print("'"+str(video.title)+"'")
+        print(resolution(url))
+        print()
+        res = str(input("Enter choice of resolution (or for only audio, enter audio): "))
+    
+        if res == 'audio':
+            audio = video.streams.filter(only_audio=True).first().download('downloads')
+            filename = video.title
+            for subString in video.title:
+                if subString == '/':
+                    filename = filename.replace('/','-',1)
+                if subString == '|':
+                    filename = filename.replace('|','-',1)
+                if subString == ':':
+                    filename = filename.replace(':','-',1)
+            os.rename(audio, 'downloads/'+str(filename)+'.mp3')
+        else:
+            download(url, res)
+            print()
+        print("Downloaded!")
+    reply = str(input("Do you have another video/playlist/audio to download?(y/n) "))
+    if reply == 'y' or reply == 'Y':
+        run = True
+        print("______________________________________________________________________")
+    else:
+        run = False
+    
